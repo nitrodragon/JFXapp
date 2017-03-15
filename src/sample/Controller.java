@@ -34,7 +34,7 @@ public class Controller extends Application {
         grid.setPadding(new Insets(25, 25, 25, 25));
 
         Text scenetitle = new Text("Welcome");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        scenetitle.setId("welcome-text");
         grid.add(scenetitle, 0, 0, 2, 1);
 
         Label userName = new Label("User Name:");
@@ -59,14 +59,16 @@ public class Controller extends Application {
         grid.add(actiontarget, 1, 6);
 
         Scene scene = new Scene(grid, 300, 275);
+        actiontarget.setId("actiontarget");
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(Controller.class.getResource("Login.css").toExternalForm());
         primaryStage.show();
     }
 
     public static class Main extends Application {
 
         @Override
-        public void start(Stage primaryStage) throws Exception{
+        public void start(Stage primaryStage) throws Exception {
             Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             primaryStage.setTitle("Hello World");
             primaryStage.setScene(new Scene(root, 300, 275));
